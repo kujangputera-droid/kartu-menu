@@ -37,11 +37,10 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
 .kartu-info .jenis{color:var(--emas);margin:10px 0 0;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
 .kartu-info p{margin:4px 0;color:var(--teks-redup)}
 .kartu-info .deskripsi{color:var(--teks);margin-top:10px}
-.fakta{display:flex;margin-top:18px;border-top:1px solid var(--garis);padding-top:16px}
-.fakta div{flex:1;padding:0 6px}
-.fakta div + div{border-left:1px solid var(--garis)}
+.fakta{display:flex;margin-top:18px;gap:8px}
+.fakta div{flex:1;background:#ffffff;border:1px solid #f59e0b;border-radius:14px;padding:8px 6px;text-align:center;box-shadow:0 2px 6px rgba(69,10,10,.08),0 10px 24px rgba(69,10,10,.14),0 20px 40px rgba(69,10,10,.08)}
 .fakta .angka{display:block;font-weight:900;font-size:16px;color:var(--tinta)}
-.fakta .label{display:block;font-size:12px;color:var(--teks-redup);margin-top:2px}
+.fakta .label{display:block;font-size:11px;color:var(--teks-redup);margin-top:2px}
 .kartu-jam{background:var(--permukaan);border:1px solid var(--garis);border-radius:28px;margin:16px 0 0;padding:20px;box-shadow:0 8px 24px rgba(69,10,10,.10)}
 .kartu-jam h2{margin:0;font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:700;color:var(--tinta)}
 .kartu-jam .jam{font-weight:900;font-size:22px;color:var(--tinta);margin:10px 0 0}
@@ -110,7 +109,7 @@ textarea{min-height:72px;resize:vertical}
   .foto-menu{width:100%;height:170px;min-height:0;order:0}
 }
 @media (min-width:900px){.bar-keranjang{left:auto;right:24px;bottom:24px;width:360px;border:1px solid #e5e7eb;border-radius:20px;box-shadow:0 8px 24px rgba(69,10,10,.15)}.bar-keranjang .isi{max-width:none}}
-@media (max-width:360px){.fakta .angka{font-size:13px;white-space:nowrap}}
+@media (max-width:480px){.fakta .angka{font-size:13px;white-space:nowrap}}
 @media (prefers-reduced-motion: reduce){.kartu,.tambah,.chip,.tombol-wa{transition:none}.kartu:hover{transform:none}}
 </style>
 </head>
