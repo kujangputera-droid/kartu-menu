@@ -25,7 +25,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
 .hero img{width:100%;height:100%;object-fit:cover;display:block}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.38),rgba(0,0,0,0) 32%,rgba(0,0,0,0) 60%,rgba(0,0,0,.30));pointer-events:none}
 .hero .kembali{position:absolute;top:16px;left:16px;z-index:2;background:#fff;color:var(--teks);border:1px solid #e5e7eb;border-radius:50%;width:44px;height:44px;font-size:18px;box-shadow:0 4px 12px rgba(0,0,0,.20)}
-.hero .lencana{position:absolute;top:16px;right:16px;z-index:2;box-shadow:0 4px 12px rgba(0,0,0,.20)}
+.hero .lencana{position:absolute;top:16px;right:16px;z-index:2;box-shadow:0 4px 12px rgba(0,0,0,.20);width:auto;min-height:0}
 .lencana{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;font-size:14px;font-weight:800;white-space:nowrap}
 .lencana::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
 .lencana.buka{background:#dcfce7;color:#14532d}
@@ -110,6 +110,7 @@ textarea{min-height:72px;resize:vertical}
   .foto-menu{width:100%;height:170px;min-height:0;order:0}
 }
 @media (min-width:900px){.bar-keranjang{left:auto;right:24px;bottom:24px;width:360px;border:1px solid #e5e7eb;border-radius:20px;box-shadow:0 8px 24px rgba(69,10,10,.15)}.bar-keranjang .isi{max-width:none}}
+@media (max-width:360px){.fakta .angka{font-size:13px;white-space:nowrap}}
 @media (prefers-reduced-motion: reduce){.kartu,.tambah,.chip,.tombol-wa{transition:none}.kartu:hover{transform:none}}
 </style>
 </head>
