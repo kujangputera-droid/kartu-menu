@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kartu Menu — Warung Makan Bu Siti (Preview Dummy)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<script>
+function fotoCadangan(img){
+  if(!img || img.dataset.gagal){ return; }
+  img.dataset.gagal = "1";
+  var c = img.getAttribute("data-cadangan");
+  if(c){ img.src = c; }
+}
+</script>
+<style>
+:root{--merah:#dc2626;--merah-tua:#991b1b;--emas:#a16207;--emas-terang:#fbbf24;--tinta:#450a0a;--latar:#fff7ed;--permukaan:#fffaf2;--kartu:#ffffff;--teks:#1f2937;--teks-redup:#595959;--garis:#fde68a;--radius:20px;--wa:#25d366;--wa-teks:#052e16}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Nunito',system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--latar);color:var(--teks);font-size:16px;line-height:1.5;overscroll-behavior:contain}
+button{font-family:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--emas);outline-offset:2px}
+::selection{background:var(--emas-terang);color:var(--tinta)}
+.hero{position:relative;max-width:480px;height:272px;margin:0 auto;overflow:hidden;background:#fef3c7}
+.hero img{width:100%;height:100%;object-fit:cover;display:block}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.38),rgba(0,0,0,0) 32%,rgba(0,0,0,0) 60%,rgba(0,0,0,.30));pointer-events:none}
+.hero .kembali{position:absolute;top:16px;left:16px;z-index:2;background:#fff;color:var(--teks);border:1px solid #e5e7eb;border-radius:50%;width:44px;height:44px;font-size:18px;box-shadow:0 4px 12px rgba(0,0,0,.20)}
+.hero .lencana{position:absolute;top:16px;right:16px;z-index:2;box-shadow:0 4px 12px rgba(0,0,0,.20)}
+.lencana{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;font-size:14px;font-weight:800;white-space:nowrap}
+.lencana::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.lencana.buka{background:#dcfce7;color:#14532d}
+.lencana.tutup{background:#fee2e2;color:#7f1d1d}
+.pembungkus{max-width:480px;margin:0 auto;padding:0 16px 120px;text-align:center}
+.kartu-info{background:var(--permukaan);border:1px solid var(--garis);border-radius:28px;margin:-40px 0 0;padding:0 20px 24px;box-shadow:0 8px 24px rgba(69,10,10,.10);position:relative;z-index:2}
+.avatar{width:96px;height:96px;border-radius:50%;margin:-48px auto 0;border:4px solid #fff;box-shadow:0 0 0 3px var(--emas-terang),0 8px 24px rgba(69,10,10,.18);object-fit:cover;display:block;background:#fef3c7}
+.kartu-info h1{margin:16px 0 0;font-family:'Playfair Display',Georgia,serif;font-size:32px;line-height:1.15;font-weight:800;color:var(--tinta)}
+.kartu-info .jenis{color:var(--emas);margin:10px 0 0;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.kartu-info p{margin:4px 0;color:var(--teks-redup)}
+.kartu-info .deskripsi{color:var(--teks);margin-top:10px}
+.fakta{display:flex;margin-top:18px;border-top:1px solid var(--garis);padding-top:16px}
+.fakta div{flex:1;padding:0 6px}
+.fakta div + div{border-left:1px solid var(--garis)}
+.fakta .angka{display:block;font-weight:900;font-size:16px;color:var(--tinta)}
+.fakta .label{display:block;font-size:12px;color:var(--teks-redup);margin-top:2px}
+.kartu-jam{background:var(--permukaan);border:1px solid var(--garis);border-radius:28px;margin:16px 0 0;padding:20px;box-shadow:0 8px 24px rgba(69,10,10,.10)}
+.kartu-jam h2{margin:0;font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:700;color:var(--tinta)}
+.kartu-jam .jam{font-weight:900;font-size:22px;color:var(--tinta);margin:10px 0 0}
+.kartu-jam p{margin:4px 0;color:var(--teks-redup)}
+.kartu-jam .lencana{margin-top:10px}
+.tombol-wa{display:flex;align-items:center;justify-content:center;gap:10px;margin:20px auto 0;background:var(--wa);color:var(--wa-teks);text-decoration:none;font-weight:800;font-size:17px;padding:14px 18px;border-radius:999px;min-height:48px;line-height:20px;max-width:360px;box-shadow:0 6px 16px rgba(69,10,10,.15);transition:transform .15s ease,box-shadow .2s ease}
+.tombol-wa:active{transform:scale(.98)}
+.tombol-wa svg{flex:none}
+.tagline{font-family:'Playfair Display',Georgia,serif;font-weight:700;color:var(--merah);margin:28px 0 6px;font-size:22px}
+.pencarian{margin-top:20px;text-align:left}
+.pencarian input{width:100%;min-height:48px;border:1px solid #e5e7eb;border-radius:999px;padding:12px 18px;font-size:16px;font-family:inherit;background:#fff;text-align:center}
+.pencarian input:focus{border-color:var(--emas)}
+.chip-wrap{display:flex;gap:8px;flex-wrap:wrap;margin:12px -16px 0;padding:10px 16px;justify-content:center;position:sticky;top:0;z-index:15;background:var(--latar);border-bottom:1px solid var(--garis)}
+.chip{border:1px solid var(--merah);background:#fff;color:var(--merah);border-radius:999px;padding:10px 16px;min-height:44px;font-weight:700;transition:background .2s ease,box-shadow .2s ease}
+.chip.aktif{background:var(--merah);color:#fff;box-shadow:0 4px 12px rgba(69,10,10,.15)}
+.judul-bagian{font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:700;color:var(--tinta);margin:32px 0 4px}
+.sub-judul{color:var(--teks-redup);margin:0 0 16px}
+.daftar-menu{display:grid;grid-template-columns:1fr;gap:14px;text-align:left}
+.kartu{background:var(--kartu);border:1px solid var(--garis);border-radius:var(--radius);overflow:hidden;box-shadow:0 2px 12px rgba(69,10,10,.06);display:flex;flex-direction:row;transition:transform .2s ease,box-shadow .2s ease}
+.kartu:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(69,10,10,.12)}
+.foto-menu{width:112px;min-height:150px;flex:none;position:relative;background:#fef3c7;order:2}
+.foto-menu img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.kartu-isi{padding:16px;flex:1;display:flex;flex-direction:column;min-width:0}
+.lencana-menu{display:inline-block;align-self:flex-start;background:var(--emas);color:#fff;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:800;margin-bottom:6px}
+.lencana-menu.utama{background:var(--merah)}
+.lencana-habis{display:inline-block;align-self:flex-start;background:#1f2937;color:#fff;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:800;margin-bottom:6px}
+.kartu-isi h3{margin:0 0 4px;font-size:18px;line-height:1.3;font-weight:800}
+.harga{font-weight:900;color:var(--merah);font-size:19px;margin:4px 0}
+.harga-lama{color:var(--teks-redup);text-decoration:line-through;font-weight:400;font-size:14px;margin-left:6px}
+.keterangan{color:var(--teks-redup);margin:4px 0 14px;font-size:15px;line-height:1.45;flex:1}
+.tambah{width:100%;min-height:48px;border:none;border-radius:999px;background:var(--merah);color:#fff;font-weight:800;font-size:17px;box-shadow:0 4px 12px rgba(69,10,10,.15);transition:background .2s ease,transform .15s ease}
+.tambah:hover{background:var(--merah-tua)}
+.tambah:disabled{background:#9ca3af;color:#595959;box-shadow:none;cursor:not-allowed}
+.tambah:active{transform:scale(.97)}
+.stepper{display:flex;align-items:center;gap:12px}
+.stepper button{flex:none;width:48px;height:48px;border-radius:50%;border:1px solid var(--merah);background:#fff;color:var(--merah);font-size:24px;font-weight:800;box-shadow:0 2px 8px rgba(69,10,10,.12)}
+.stepper .jumlah{flex:1;text-align:center;font-weight:800;font-size:18px}
+.kosong{color:var(--teks-redup);text-align:center;padding:24px 0}
+.bar-keranjang{position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid #e5e7eb;padding:12px 16px;display:none;box-shadow:0 -4px 20px rgba(69,10,10,.08)}
+.bar-keranjang.tampil{display:block}
+.bar-keranjang .isi{max-width:480px;margin:0 auto;display:flex;align-items:center;gap:12px}
+.bar-keranjang .ringkas{flex:1;font-weight:800;text-align:left}
+.bar-keranjang .lihat{min-height:48px;border:none;border-radius:999px;background:var(--merah);color:#fff;font-weight:800;padding:12px 20px;font-size:16px}
+.lembar{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.5);display:none;align-items:flex-end;justify-content:center}
+.lembar.tampil{display:flex}
+.lembar .panel{background:#fff;width:100%;max-width:480px;max-height:88vh;overflow:auto;border-radius:20px 20px 0 0;padding:20px 16px 28px;text-align:left}
+.lembar h2{margin:0 0 12px;font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:700;color:var(--tinta);text-align:center}
+.item-checkout{display:flex;gap:12px;align-items:center;border-top:1px solid #e5e7eb;padding:12px 0}
+.item-checkout .nama{flex:1}
+.item-checkout .nama strong{display:block}
+.total{display:flex;justify-content:space-between;font-weight:800;font-size:18px;border-top:2px solid var(--teks);padding-top:12px;margin-top:8px}
+label{display:block;font-weight:700;margin:14px 0 6px}
+input[type=text],textarea{width:100%;min-height:48px;border:1px solid #e5e7eb;border-radius:12px;padding:12px;font-size:16px;font-family:inherit}
+textarea{min-height:72px;resize:vertical}
+.pilihan{display:flex;gap:8px;flex-wrap:wrap}
+.pilihan label{border:1px solid #e5e7eb;border-radius:999px;padding:10px 16px;min-height:44px;display:flex;align-items:center;gap:8px;font-weight:700;margin:0}
+.catatan-kecil{color:var(--teks-redup);font-size:14px;margin:8px 0 0}
+.kirim{width:100%;min-height:52px;border:none;border-radius:999px;background:var(--wa);color:var(--wa-teks);font-weight:800;font-size:17px;margin-top:18px;box-shadow:0 6px 16px rgba(69,10,10,.15)}
+.tutup{width:100%;min-height:48px;border:1px solid #e5e7eb;background:#fff;border-radius:999px;font-weight:700;margin-top:10px}
+.kaki{color:var(--teks-redup);font-size:14px;text-align:center;margin-top:28px}
+@media (min-width:640px){
+  .hero{max-width:720px}
+  .pembungkus{max-width:720px}
+  .daftar-menu{grid-template-columns:1fr 1fr;gap:16px}
+  .kartu{flex-direction:column}
+  .foto-menu{width:100%;height:170px;min-height:0;order:0}
+}
+@media (min-width:900px){.bar-keranjang{left:auto;right:24px;bottom:24px;width:360px;border:1px solid #e5e7eb;border-radius:20px;box-shadow:0 8px 24px rgba(69,10,10,.15)}.bar-keranjang .isi{max-width:none}}
+@media (prefers-reduced-motion: reduce){.kartu,.tambah,.chip,.tombol-wa{transition:none}.kartu:hover{transform:none}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <img src="foto/hero.jpg" alt="Foto makanan Warung Makan Bu Siti, contoh" width="1200" height="800" fetchpriority="high" data-cadangan="foto/profil.jpg" onerror="fotoCadangan(this)">
+  <button class="kembali" type="button" aria-label="Kembali ke direktori usaha" onclick="kembali()">&#8592;</button>
+  <span class="lencana tutup" id="lencana">Tutup</span>
+</div>
+
+<main class="pembungkus">
+  <section class="kartu-info" aria-label="Profil usaha">
+    <img class="avatar" src="foto/profil.jpg" alt="Foto profil Warung Makan Bu Siti, contoh" width="600" height="600" data-cadangan="foto/hero.jpg" onerror="fotoCadangan(this)">
+    <h1>Warung Makan Bu Siti</h1>
+    <p class="jenis">Makanan &amp; Minuman</p>
+    <p>Blok A No. 1, Perumahan Bukit Asri</p>
+    <p class="deskripsi">Masakan rumahan, harga warga, dimasak setiap pagi.</p>
+    <div class="fakta">
+      <div><span class="angka">07:00-17:00</span><span class="label">Jam buka</span></div>
+      <div><span class="angka" id="status-fakta">Tutup</span><span class="label">Status</span></div>
+      <div><span class="angka" id="fakta-jumlah">6 menu</span><span class="label">Menu tersedia</span></div>
+    </div>
+  </section>
+
+  <section class="kartu-jam" aria-label="Jam buka dan kontak penjual">
+    <h2>Jam Buka</h2>
+    <span class="lencana tutup" id="lencana-profil">Tutup</span>
+    <p class="jam">07:00-17:00 WIB</p>
+    <p>Blok A No. 1, Perumahan Bukit Asri</p>
+    <a class="tombol-wa" href="https://wa.me/6281234567890?text=Halo%20Bu%20Siti%2C%20saya%20mau%20tanya%20menu%20hari%20ini." target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="4"/><path d="M8 17l-3 4v-4z"/></svg>Chat WA Penjual</a>
+    <p style="font-size:13px">Nomor WA di atas nomor contoh untuk preview.</p>
+  </section>
+
+  <p class="tagline">Pesan Langsung Tanpa Antri!</p>
+  <p style="color:#595959;margin:0">Masukkan menu pilihan ke keranjang, lalu kirim pesanan lewat WA.</p>
+
+  <section class="pencarian" aria-label="Cari menu">
+    <input type="text" id="cari" placeholder="Cari menu, contoh: nasi goreng" oninput="renderMenu()">
+  </section>
+
+  <div class="chip-wrap" id="chip">
+    <button class="chip aktif" type="button" data-kategori="Semua" onclick="pilihKategori(this)">Semua</button>
+    <button class="chip" type="button" data-kategori="Makanan" onclick="pilihKategori(this)">Makanan</button>
+    <button class="chip" type="button" data-kategori="Minuman" onclick="pilihKategori(this)">Minuman</button>
+    <button class="chip" type="button" data-kategori="Camilan" onclick="pilihKategori(this)">Camilan</button>
+  </div>
+
+  <h2 class="judul-bagian">Daftar Menu Pilihan</h2>
+  <p class="sub-judul" id="jumlah-menu">6 menu tersedia</p>
+  <div class="daftar-menu" id="daftar-menu"></div>
+  <p class="kosong" id="kosong" style="display:none">Menu tidak ditemukan. Coba kata lain.</p>
+
+  <p class="kaki">Preview dummy &bull; Data contoh &bull; Kartu Menu dibuat dari nol, format Linktree<br>Foto di halaman ini masih foto dummy, nanti diganti foto asli pemilik usaha.</p>
+</main>
+
+<div class="bar-keranjang" id="bar-keranjang">
+  <div class="isi">
+    <span class="ringkas" id="ringkas-keranjang"></span>
+    <button class="lihat" type="button" onclick="bukaCheckout()">Lihat Keranjang</button>
+  </div>
+</div>
+
+<div class="lembar" id="lembar" role="dialog" aria-label="Checkout">
+  <div class="panel">
+    <h2>Checkout</h2>
+    <div id="item-checkout"></div>
+    <div class="total"><span>Total</span><span id="total-harga">Rp0</span></div>
+    <label for="nama">Nama pembeli</label>
+    <input type="text" id="nama" placeholder="Contoh: Anton">
+    <label for="alamat">Alamat / catatan</label>
+    <textarea id="alamat" placeholder="Contoh: Blok B No. 5, catatan untuk penjual"></textarea>
+    <label>Pilihan ambil</label>
+    <div class="pilihan">
+      <label><input type="radio" name="ambil" value="Ambil sendiri" checked> Ambil sendiri</label>
+      <label><input type="radio" name="ambil" value="Diantar (atur lewat WA)"> Diantar (atur lewat WA)</label>
+    </div>
+    <p class="catatan-kecil">Pengiriman tidak dijanjikan di halaman ini. Kalau mau diantar, atur langsung dengan penjual lewat WA.</p>
+    <button class="kirim" type="button" onclick="kirimWA()">Kirim lewat WA</button>
+    <button class="tutup" type="button" onclick="tutupCheckout()">Tutup</button>
+    <p style="color:#595959;font-size:14px">Ringkasan pesanan tampil dulu di atas, baru dikirim lewat WA ke nomor contoh penjual.</p>
+  </div>
+</div>
+
+<script>
+var WA_PENJUAL = "6281234567890";
+var MENU = [
+  {id:1, nama:"Nasi Goreng Bu Siti", harga:15000, harga_lama:18000, kategori:"Makanan", ket:"Nasi goreng telur, ayam suwir, dan kerupuk.", lencana:"Paling Laris", foto:"foto/nasi-goreng.jpg", cadangan:"foto/cadangan-1.jpg"},
+  {id:2, nama:"Ayam Geprek Sambal", harga:13000, harga_lama:0, kategori:"Makanan", ket:"Ayam geprek pedas, nasi hangat, dan lalap.", lencana:"Favorit Pelanggan", foto:"foto/ayam-geprek.jpg", cadangan:"foto/cadangan-2.jpg"},
+  {id:3, nama:"Mie Ayam Bakso", harga:12000, harga_lama:15000, kategori:"Makanan", ket:"Mie ayam, bakso sapi, dan pangsit goreng.", lencana:"", foto:"foto/mie-ayam.jpg", cadangan:"foto/cadangan-3.jpg"},
+  {id:4, nama:"Es Teh Manis", harga:5000, harga_lama:0, kategori:"Minuman", ket:"Teh melati manis dengan es batu.", lencana:"", foto:"foto/es-teh.jpg", cadangan:"foto/cadangan-4.jpg"},
+  {id:5, nama:"Es Jeruk Peras", harga:6000, harga_lama:0, kategori:"Minuman", ket:"Jeruk peras asli, gula sedikit.", lencana:"Segar", foto:"foto/es-jeruk.jpg", cadangan:"foto/cadangan-1.jpg"},
+  {id:6, nama:"Pisang Goreng Coklat Keju", harga:10000, harga_lama:0, kategori:"Camilan", ket:"Pisang raja goreng, coklat, dan keju parut.", lencana:"", habis:true, foto:"foto/pisang-goreng.jpg", cadangan:"foto/cadangan-2.jpg"}
+];
+var keranjang = {};
+var kategoriAktif = "Semua";
+function rupiah(n){ return "Rp" + n.toLocaleString("id-ID"); }
+function kembali(){ if(window.history.length > 1){ window.history.back(); } else { alert("Tombol kembali: di preview ini kembali ke direktori usaha."); } }
+function pilihKategori(el){
+  kategoriAktif = el.getAttribute("data-kategori");
+  var chips = document.querySelectorAll("#chip .chip");
+  chips.forEach(function(c){ c.classList.remove("aktif"); });
+  el.classList.add("aktif");
+  renderMenu();
+}
+function renderMenu(){
+  var kata = document.getElementById("cari").value.toLowerCase();
+  var daftar = document.getElementById("daftar-menu");
+  daftar.innerHTML = "";
+  var ketemu = 0;
+  MENU.forEach(function(m){
+    var cocokKategori = kategoriAktif === "Semua" || m.kategori === kategoriAktif;
+    var cocokKata = m.nama.toLowerCase().indexOf(kata) !== -1 || m.ket.toLowerCase().indexOf(kata) !== -1 || m.kategori.toLowerCase().indexOf(kata) !== -1;
+    if(!cocokKategori || !cocokKata){ return; }
+    ketemu++;
+    var jumlah = keranjang[m.id] || 0;
+    var kartu = document.createElement("article");
+    kartu.className = "kartu";
+    var hargaLama = m.harga_lama ? '<span class="harga-lama">' + rupiah(m.harga_lama) + '</span>' : '';
+    var lencanaMenu = m.lencana ? '<span class="lencana-menu' + (m.lencana === "Paling Laris" ? " utama" : "") + '">' + m.lencana + '</span>' : '';
+    var lencanaHabis = m.habis ? '<span class="lencana-habis">Habis</span>' : '';
+    var kontrol = m.habis
+      ? '<button class="tambah" type="button" disabled>Habis</button>'
+      : jumlah === 0
+      ? '<button class="tambah" type="button" onclick="ubahJumlah(' + m.id + ',1)">Tambah</button>'
+      : '<div class="stepper"><button type="button" aria-label="Kurangi" onclick="ubahJumlah(' + m.id + ',-1)">-</button><span class="jumlah">' + jumlah + '</span><button type="button" aria-label="Tambah" onclick="ubahJumlah(' + m.id + ',1)">+</button></div>';
+    kartu.innerHTML = '<div class="foto-menu"><img src="' + m.foto + '" alt="Foto ' + m.nama + ', contoh" width="600" height="400" loading="lazy" decoding="async" data-cadangan="' + m.cadangan + '" onerror="fotoCadangan(this)"></div><div class="kartu-isi">' + lencanaMenu + lencanaHabis + '<h3>' + m.nama + '</h3><p class="harga">' + rupiah(m.harga) + hargaLama + '</p><p class="keterangan">' + m.ket + '</p>' + kontrol + '</div>';
+    daftar.appendChild(kartu);
+  });
+  document.getElementById("kosong").style.display = ketemu === 0 ? "block" : "none";
+  document.getElementById("jumlah-menu").textContent = ketemu + " menu tersedia";
+}
+function ubahJumlah(id, delta){
+  keranjang[id] = (keranjang[id] || 0) + delta;
+  if(keranjang[id] <= 0){ delete keranjang[id]; }
+  renderMenu();
+  renderKeranjang();
+  if(totalItem() === 0){ document.getElementById("lembar").classList.remove("tampil"); }
+}
+function totalItem(){
+  var total = 0;
+  Object.keys(keranjang).forEach(function(id){ total += keranjang[id]; });
+  return total;
+}
+function totalHarga(){
+  var total = 0;
+  Object.keys(keranjang).forEach(function(id){
+    var m = MENU.find(function(x){ return x.id == id; });
+    if(m){ total += m.harga * keranjang[id]; }
+  });
+  return total;
+}
+function renderKeranjang(){
+  var bar = document.getElementById("bar-keranjang");
+  if(totalItem() === 0){ bar.classList.remove("tampil"); return; }
+  bar.classList.add("tampil");
+  document.getElementById("ringkas-keranjang").textContent = totalItem() + " item \u2022 " + rupiah(totalHarga());
+}
+function bukaCheckout(){
+  if(totalItem() === 0){ document.getElementById("lembar").classList.remove("tampil"); return; }
+  var wadah = document.getElementById("item-checkout");
+  wadah.innerHTML = "";
+  Object.keys(keranjang).forEach(function(id){
+    var m = MENU.find(function(x){ return x.id == id; });
+    var baris = document.createElement("div");
+    baris.className = "item-checkout";
+    baris.innerHTML = '<div class="nama"><strong>' + m.nama + '</strong><span>' + rupiah(m.harga) + ' x ' + keranjang[id] + '</span></div><div class="stepper"><button type="button" aria-label="Kurangi" onclick="ubahJumlah(' + m.id + ',-1);bukaCheckout()">-</button><span class="jumlah">' + keranjang[id] + '</span><button type="button" aria-label="Tambah" onclick="ubahJumlah(' + m.id + ',1);bukaCheckout()">+</button></div>';
+    wadah.appendChild(baris);
+  });
+  document.getElementById("total-harga").textContent = rupiah(totalHarga());
+  document.getElementById("lembar").classList.add("tampil");
+}
+function tutupCheckout(){ document.getElementById("lembar").classList.remove("tampil"); }
+document.addEventListener("keydown", function(e){
+  if(e.key === "Escape"){ tutupCheckout(); }
+});
+function kirimWA(){
+  if(totalItem() === 0){ alert("Keranjang masih kosong."); return; }
+  var nama = document.getElementById("nama").value.trim();
+  var alamat = document.getElementById("alamat").value.trim();
+  var ambil = document.querySelector('input[name="ambil"]:checked').value;
+  var baris = ["Halo Bu Siti, saya mau pesan:", ""];
+  Object.keys(keranjang).forEach(function(id){
+    var m = MENU.find(function(x){ return x.id == id; });
+    baris.push("- " + m.nama + " x " + keranjang[id] + " = " + rupiah(m.harga * keranjang[id]));
+  });
+  baris.push("", "Total: " + rupiah(totalHarga()));
+  baris.push("Nama: " + (nama || "-"));
+  baris.push("Alamat / catatan: " + (alamat || "-"));
+  baris.push("Pilihan: " + ambil);
+  var url = "https://wa.me/" + WA_PENJUAL + "?text=" + encodeURIComponent(baris.join("\n"));
+  window.open(url, "_blank");
+}
+function perbaruiLencana(){
+  var sekarang = new Date();
+  var menit = sekarang.getHours() * 60 + sekarang.getMinutes();
+  var buka = menit >= 7 * 60 && menit < 17 * 60;
+  var teks = buka ? "Buka" : "Tutup";
+  var kelas = "lencana " + (buka ? "buka" : "tutup");
+  var a = document.getElementById("lencana");
+  var b = document.getElementById("lencana-profil");
+  a.textContent = teks; a.className = kelas;
+  b.textContent = teks; b.className = kelas;
+  document.getElementById("status-fakta").textContent = teks;
+}
+perbaruiLencana();
+renderMenu();
+renderKeranjang();
+</script>
+</body>
+</html>
